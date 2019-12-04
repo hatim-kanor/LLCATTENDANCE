@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item
+    android:id="@+id/present"
+    android:title="PRESENT"
+    android:icon="@drawable/ic_check_black_24dp"
+    app:showAsAction="ifRoom"
+    />
+    <!--<item
+        android:id="@+id/absent"
+        android:title="ABSENT"
+        android:icon="@drawable/ic_close_black_24dp"
+        app:showAsAction="ifRoom"
+        />-->
+    <item
+        android:id="@+id/sheet"
+        android:title="SHEET"
+        android:icon="@drawable/sheet"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:menuCategory="secondary"
+        android:title="HOME"
+        app:showAsAction="ifRoom" />
+
+</menu>

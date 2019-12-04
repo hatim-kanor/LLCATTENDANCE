@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sybms">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_margin="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        >
+        <TextView
+            android:id="@+id/div"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Div"
+            android:textSize="25dp"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10dp"
+            />
+
+        <Button
+            android:id="@+id/a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/div"
+            android:background="@drawable/btn_stream"
+            android:textColor="@android:color/black"
+            android:layout_alignParentLeft="true"
+            android:textSize="20sp"
+            android:text="A"
+            />
+
+        <Button
+            android:id="@+id/b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_stream"
+            android:textColor="@android:color/black"
+            android:layout_below="@id/div"
+            android:textSize="20sp"
+            android:layout_alignParentRight="true"
+            android:text="B"
+            />
+
+        <Button
+            android:id="@+id/c"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/a"
+            android:background="@drawable/btn_stream"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:text="C"
+            />
+
+
+        <Button
+            android:id="@+id/d"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/b"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_stream"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:text="D"
+            />
+
+        <Button
+            android:id="@+id/marketing"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/c"
+            android:background="@drawable/btn_stream"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:text="Marketing"
+            />
+
+
+        <Button
+            android:id="@+id/finance"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/d"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_stream"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:text="Finance"
+            />
+
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        android:id="@+id/layout"
+        android:layout_margin="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:textAlignment="center"
+                android:id="@+id/tablelayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TableRow
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/tablerow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    >
+                    <TextView
+                        android:id="@+id/Col1"
+                        android:textColor="@android:color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Column1"
+                        android:layout_column="1"
+                        />
+                    <TextView
+                        android:id="@+id/Col2"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Column2"
+                        android:layout_column="2"
+                        />
+                    <TextView
+                        android:id="@+id/Col3"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Column3"
+                        android:layout_column="3"
+                        />
+                </TableRow>
+            </TableLayout>
+
+            <!--<TextView-->
+                <!--android:id="@+id/staff_name"-->
+                <!--android:text="Name"-->
+                <!--android:textSize="18dp"-->
+                <!--android:gravity="center"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="40dp" />-->
+            <!--<TextView-->
+                <!--android:id="@+id/staff_stream"-->
+                <!--android:layout_below="@id/staff_name"-->
+                <!--android:text="Role"-->
+                <!--android:textSize="18dp"-->
+                <!--android:gravity="center"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="30dp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textViewOptions"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+                <!--android:text="&#8942;"-->
+                <!--android:textAppearance="?android:textAppearanceLarge" />-->
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+</ScrollView>
