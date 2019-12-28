@@ -60,7 +60,7 @@ public class sybms_c extends AppCompatActivity {
         if(id == R.id.sheet)
         {
 
-            String url = "https://docs.google.com/spreadsheets/d/1XbPrcBagU_KcklbiHTxrqwYTjRGLA1jZTuy0dnGFcC0/edit#gid=718042851";
+            String url = "https://docs.google.com/spreadsheets/d/17hllByc1czZMomQyI9Oe5guhI05fNk-jyvqxASxEaZc/edit#gid=1652280900";
 //            Intent i = new Intent(Intent.ACTION_VIEW);
 //            i.setData(Uri.parse(url));
 //            startActivity(i);

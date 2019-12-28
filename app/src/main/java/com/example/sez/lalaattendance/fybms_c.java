@@ -61,7 +61,7 @@ public class fybms_c extends AppCompatActivity {
         if(id == R.id.sheet)
         {
 
-            String url = "https://docs.google.com/spreadsheets/d/1ETqVHGLqtPAUw47Z93PO8BXVFybcrQm3s0F4Bd7twL0/edit?usp=forms_web_b#gid=1512867331";
+            String url = "https://docs.google.com/spreadsheets/d/1PuoSX2P36wVLea_kjE4R5pRuK800i9H6VP37J-M8sy0/edit#gid=1381404495";
 //            Intent i = new Intent(Intent.ACTION_VIEW);
 //            i.setData(Uri.parse(url));
 //            startActivity(i);

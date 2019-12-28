@@ -59,7 +59,7 @@ public class baf_fyA extends AppCompatActivity {
         if(id == R.id.sheet)
         {
 
-            String url = "https://docs.google.com/spreadsheets/d/1eecZfpZeUaFMNHfFViyB3_GM4dzO1SqquzPKhFAIr2U/edit#gid=331051684";
+            String url = "https://docs.google.com/spreadsheets/d/15XcXW8_eLyVbeSZvW1IIVUjsOTeE4R2TvIesm87Bfzk/edit#gid=2117295696";
 //            Intent i = new Intent(Intent.ACTION_VIEW);
 //            i.setData(Uri.parse(url));
 //            startActivity(i);
@@ -89,12 +89,6 @@ public class baf_fyA extends AppCompatActivity {
                     dialog.dismiss();
                 }
             });
-
-
-
-
-
-
 
             Toast.makeText(baf_fyA.this, "FY BAF ONLINE SHEET SELECTED", Toast.LENGTH_SHORT).show();
         }

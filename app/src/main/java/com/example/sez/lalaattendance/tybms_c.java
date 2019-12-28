@@ -62,7 +62,7 @@ public class tybms_c extends AppCompatActivity {
         if(id == R.id.sheet)
         {
 
-            String url = "https://docs.google.com/spreadsheets/d/1XMQJYAGbnic_HFYKTIV34YYFuBzdWaNc0LdZk9BJJvw/edit#gid=1198723272";
+            String url = "https://docs.google.com/spreadsheets/d/1DYNFYk7EpAvloN8rSBdqktH4KQjljrq-0NMf6lexmag/edit#gid=427263183";
 //            Intent i = new Intent(Intent.ACTION_VIEW);
 //            i.setData(Uri.parse(url));
 //            startActivity(i);

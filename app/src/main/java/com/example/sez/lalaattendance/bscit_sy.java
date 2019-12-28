@@ -8,6 +8,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
@@ -37,6 +38,7 @@ import com.example.sez.lalaattendance.Classes.AttendanceClass;
 import com.example.sez.lalaattendance.Classes.ViewSubjectsClass;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -49,15 +51,11 @@ public class bscit_sy extends AppCompatActivity {
     Spinner dropdown_subject;
     Button btn_GetAttendance;
 
-
-    private static String URL = "https://script.google.com/macros/s/AKfycbz8d1T1jWyUt_5mB39k1BbqYjVc-ad2olQ_d3uHAW-1mxY2QILV/exec";
-
     private WebView webView;
     private TextView mTextMessage;
-    public String itemSelected;
-    ArrayAdapter<ViewSubjectsClass> arrayAdapter;
-    List<ViewSubjectsClass> ViewSubject;
-    List<AttendanceClass> ViewAttendance;
+    private static String URL = "http://llc-attendance.000webhostapp.com/Attendance_Data/getSubject.php";
+    private static String google_form = "";
+    private static String google_sheet = "";
 
 
 
@@ -69,49 +67,15 @@ public class bscit_sy extends AppCompatActivity {
         mTextMessage = ( TextView ) findViewById(R.id.message);
         ///recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         //dropdown_subject = (Spinner)findViewById(R.id.dropdown_subject);
-
-    }
-
-    private void AssignSubject() {
-        ViewSubject = new ArrayList<>();
-
-        ViewSubjectsClass opt = new ViewSubjectsClass("Select Subject ");
-        ViewSubject.add(opt);
-        ViewSubjectsClass COST = new ViewSubjectsClass("COST ");
-        ViewSubject.add(COST);
-        ViewSubjectsClass ES = new ViewSubjectsClass("ES");
-        ViewSubject.add(ES);
-        ViewSubjectsClass JAVA = new ViewSubjectsClass("JAVA ");
-        ViewSubject.add(JAVA);
-        ViewSubjectsClass SE = new ViewSubjectsClass("SE");
-        ViewSubject.add(SE);
-        ViewSubjectsClass CG = new ViewSubjectsClass("CG");
-        ViewSubject.add(CG);
-
-        arrayAdapter = new ArrayAdapter<ViewSubjectsClass>(this, android.R.layout.simple_spinner_item, ViewSubject);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        dropdown_subject.setAdapter(arrayAdapter);
+        getURLs();
 
 
     }
-
-    public void onBackPressed() {
-
-        Toast.makeText(this, "Click on Home Button to go back", Toast.LENGTH_SHORT).show();
-
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.bscit_status,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if(id == R.id.present)
+    public void displayWebView(int itemID)
+    {
+        if(itemID == R.id.present)
         {
             webView = (WebView)findViewById(R.id.webView);
-
             WebSettings webSettings = webView.getSettings();
 
             webSettings.setJavaScriptEnabled(true);
@@ -122,22 +86,12 @@ public class bscit_sy extends AppCompatActivity {
             //  webView.getSettings().setBuiltInZoomControls(true);
             webView.setWebViewClient(new WebViewClient());
 
-            webView.loadUrl("https://docs.google.com/forms/d/e/1FAIpQLSeqUASbdJB9UR5eZHjycNRRYcgrzw-oIJ4NBC9yoGGWLYXXdA/viewform");
+            webView.loadUrl(google_form);
             Toast.makeText(bscit_sy.this, "SYBSCIT PRESENT SELECTED", Toast.LENGTH_SHORT).show();
 
         }
-        if(id == R.id.sheet)
+        if(itemID == R.id.sheet)
         {
-
-            String url = "https://docs.google.com/spreadsheets/d/1b8_GB9cWXXgqj4FNbpVITuA2dVCPcHMtxKI0EPt6HQs/edit#gid=1812594054";
-//            Intent i = new Intent(Intent.ACTION_VIEW);
-//            i.setData(Uri.parse(url));
-//            startActivity(i);
-
-            //To be used for Volley Spreadsheet
-            //RecyclerView wv1 = (RecyclerView) view.findViewById(R.id.recyclerView);
-            //btn_GetAttendance = (Button)view.findViewById(R.id.btn_GetAttendance);
-            //dropdown_subject = (Spinner)view.findViewById(R.id.dropdown_subject);
             AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
             LayoutInflater inflater = this.getLayoutInflater();
             View view = inflater.inflate(R.layout.sheet,null);
@@ -156,88 +110,7 @@ public class bscit_sy extends AppCompatActivity {
             //  webView.getSettings().setBuiltInZoomControls(true);
             wv.setWebViewClient(new WebViewClient());
 
-            wv.loadUrl(url);
-            //
-//            AssignSubject();
-//            btn_GetAttendance.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(final View view) {
-//                    ViewSubjectsClass subject = (ViewSubjectsClass)dropdown_subject.getSelectedItem();
-//                    itemSelected = subject.getSubject().toString();
-//                    Snackbar.make(view,"Subject: " + itemSelected,Snackbar.LENGTH_SHORT).show();
-//
-//                    StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://script.google.com/macros/s/AKfycbz8d1T1jWyUt_5mB39k1BbqYjVc-ad2olQ_d3uHAW-1mxY2QILV/exec?action=getItems&divis="+itemSelected,
-//                            new Response.Listener<String>() {
-//                                @Override
-//                                public void onResponse(String response) {
-//                                    try {
-//                                        Log.d("DATA",response);
-//
-//                                        JSONObject jsonObject = new JSONObject(response);
-//                                        String success = jsonObject.getString("items");
-//                                        JSONArray login = jsonObject.getJSONArray("items");
-//                                        if(jsonObject.names().get(0).equals("items"))
-//                                        {
-//                                            Log.d("INSIDE_DATA",success);
-//                                            for(int i = 0;i< login.length() ; i++) {
-//                                                JSONObject object = login.getJSONObject(i);
-//                                                Log.d("LOGIN_LENGTH: ", String.valueOf(login.length()));
-//                                                Log.d("LOGIN1: "+ i,object.getString("Col1"));
-//                                                Log.d("LOGIN2: "+ i,object.getString("Col2"));
-//                                                Log.d("LOGIN3: "+ i,object.getString("Col3"));
-//                                                ViewAttendance.add(new AttendanceClass(
-//                                                     object.getString("Col1"),
-//                                                        object.getString("Col2"),
-//                                                        object.getString("Col3")
-//                                                ));
-//                                                AttendanceAdapter adapter = new AttendanceAdapter(getApplicationContext(), ViewAttendance);
-//                                                recyclerView.setAdapter(adapter);
-//                                            }
-//
-//
-//                                        }
-//
-//                                        else
-//                                        {
-//                                            Snackbar.make(view,"Failed  to get Attendance",Snackbar.LENGTH_SHORT).show();
-//                                        }
-//
-//                                    }catch(Exception e)
-//                                    {
-//                                        Toast.makeText(bscit_sy.this, "Error: " + e.toString(), Toast.LENGTH_SHORT).show();
-//
-//                                    }
-//                                }
-//                            }, new Response.ErrorListener() {
-//                        @Override
-//                        public void onErrorResponse(VolleyError error) {
-//                            Toast.makeText(bscit_sy.this, "Error: " + error.toString(), Toast.LENGTH_SHORT).show();
-//
-//                        }
-//                    })
-//                    {
-//                        @Override
-//                        protected Map<String, String> getParams() throws AuthFailureError {
-//                            Map<String,String> params = new HashMap<>();
-//                            params.put("divis",itemSelected);
-//                            params.put("action","getItems");
-//                            return params;
-//                        }
-//                    };
-//                    RequestQueue requestQueue = Volley.newRequestQueue(bscit_sy.this);
-//                    requestQueue.add(stringRequest);
-//
-//
-//
-//                }
-//            });
-//            dropdown_subject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                    itemSelected  = adapterView.getItemAtPosition(i).toString();
-//                    Snackbar.make(view,"Subject: " + itemSelected,Snackbar.LENGTH_SHORT).show();
-//                }
-//            });
+            wv.loadUrl(google_sheet);
 
             tv.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -246,20 +119,99 @@ public class bscit_sy extends AppCompatActivity {
                 }
             });
 
-
-
-
-
-
-
-
             Toast.makeText(bscit_sy.this, "SYBSCIT ONLINE SHEET SELECTED", Toast.LENGTH_SHORT).show();
         }
-        if(id == R.id.navigation_home)
+        if(itemID == R.id.navigation_home)
         {
             Intent ii = new Intent(getApplicationContext(),bscit.class);
             startActivity(ii);
         }
+    }
+
+    private void getURLs() {
+        Log.d("URL","ENTERED getURLs METHOD");
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            JSONObject jsonObject = new JSONObject(response);
+                            JSONArray jsonArray = jsonObject.getJSONArray("subject");
+                            Log.d("URL","jsonARRAY: " + jsonArray);
+                            if(jsonObject.getString("success").equals("1"))
+                            {
+                                for(int i=0;i<jsonArray.length();i++)
+                                {
+                                    JSONObject object = jsonArray.getJSONObject(i);
+                                    Log.d("URL","Google Form: " + object.getString("google_form"));
+                                    Log.d("URL","Google Sheet: " + object.getString("google_sheet"));
+
+                                    google_form = object.getString("google_form");
+                                    google_sheet = object.getString("google_sheet");
+                                    if(google_form !=" " && google_sheet != "")
+                                    {
+                                        Toast.makeText(bscit_sy.this, "URL`s Loaded Successfully", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else if(google_form == " " && google_sheet == "")
+                                    {
+                                        Toast.makeText(bscit_sy.this, "Failed to Load URL`s \nKindly Refresh", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+
+                            }
+                            else
+                            {
+                                Toast.makeText(bscit_sy.this, "Could not fetch URL", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        catch(JSONException e)
+                        {
+                            Toast.makeText(bscit_sy.this, "JSON Exception " + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                        catch(Exception ex)
+                        {
+                            Toast.makeText(bscit_sy.this, "Exception: " + ex.toString(), Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(bscit_sy.this, "Volley Error: " + error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<>();
+                params.put("year","SY");
+                params.put("stream","BSCIT");
+                return params;
+            }
+        } ;
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
+
+    public void onBackPressed() {
+
+        Toast.makeText(this, "Click on Home Button to go back", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.bscit_status,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        displayWebView(id);
         return super.onOptionsItemSelected(item);
     }
+
 }

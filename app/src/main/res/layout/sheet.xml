@@ -15,7 +15,7 @@
         android:layout_marginRight="10px"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:background="@color/colorPrimaryDark"
+        android:background="@android:color/holo_blue_light"
         android:layout_height="wrap_content"
         android:gravity="end" />
 
@@ -25,41 +25,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="InvalidId" />
-    <!--<TableLayout-->
-        <!--android:gravity="center"-->
-        <!--android:id="@+id/tablelayout_sheet"-->
-        <!--android:layout_below="@id/layer"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content">-->
-        <!--<TableRow-->
-            <!--android:layout_gravity="center"-->
-            <!--android:gravity="center"-->
-            <!--&gt;-->
-            <!--<Spinner-->
-                <!--android:layout_column="1"-->
-                <!--android:id="@+id/dropdown_subject"-->
-                <!--android:layout_below="@id/layer"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"></Spinner>-->
-            <!--<Button-->
-                <!--android:id="@+id/btn_GetAttendance"-->
-                <!--android:layout_alignParentRight="true"-->
-                <!--android:layout_below="@id/layer"-->
-                <!--android:text="Get Attendance"-->
-                <!--android:layout_column="2"-->
-                <!--android:layout_toRightOf="@id/dropdown_subject"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content" />-->
-        <!--</TableRow>-->
-    <!--</TableLayout>-->
-    <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:layout_below="@id/tablelayout_sheet"-->
-        <!--android:id="@+id/recyclerView"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
-
-    <!--</android.support.v7.widget.RecyclerView>-->
 
 
 
