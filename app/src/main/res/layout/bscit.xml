@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +10,8 @@
     android:background="@drawable/bg"
     tools:context=".bscit">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -25,6 +26,25 @@
                     android:textSize="22sp"
                     android:text="FY IT"
                     />
+        <LinearLayout
+            android:id="@+id/fy_pracs"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/fy_b1"
+                android:text="B1"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/fy_b2"
+                android:text="B2"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
                 <Button
                     android:id="@+id/sy"
@@ -34,7 +54,6 @@
                     android:background="@drawable/btn_stream"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
-                    android:layout_below="@id/fy"
                     android:text="SY IT"
                     />
 
@@ -43,12 +62,11 @@
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/sy"
                     android:background="@drawable/btn_stream"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:text="TY IT"
                     />
-    </RelativeLayout>
+    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

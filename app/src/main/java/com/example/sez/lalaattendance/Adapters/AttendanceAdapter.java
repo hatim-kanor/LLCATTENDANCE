@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,13 +34,34 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Pr
         return new ProductViewHolder(view);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBindViewHolder(AttendanceAdapter.ProductViewHolder holder, int position) {
         final AttendanceClass aClass = AttendanceClass.get(position);
-        final String Column1 = aClass.getCol1();
-        final  String Column2 = aClass.getCol2();
-        final String Column3 = aClass.getCol3();
+        //final String Column1 = aClass.getCol1();
+        final String sstringval1,sstringval2;
+
+        final int nu = position;
+
+        //final String sstringval = Column1.substring(0,Column1.length()-14);
+        Log.d("POSITION; " , "Position "+ nu);
+        String Column1 = aClass.getCol1();
+        String Column2 = aClass.getCol2();
+        String Column3 = aClass.getCol3();
+
+        if(position == 0)
+        {
+            Column1 = "D";
+            Column2 = Column2.substring(0,Column2.length()-14);
+            Column3 = Column3.substring(0,Column3.length()-14);
+        }
+        if(position == 1)
+        {
+            Column1 = "Sub";
+        }
+        if(position == 2)
+        {
+            Column1 = "N.O.L";
+        }
 
         holder.Col1.setText(Column1);
         holder.Col2.setText(Column2);

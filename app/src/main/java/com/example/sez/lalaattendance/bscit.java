@@ -8,10 +8,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class bscit extends AppCompatActivity {
     Button fy,sy,ty;
+    LinearLayout fy_pracs;
+    Button b1,b2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +25,16 @@ public class bscit extends AppCompatActivity {
         fy = (Button)findViewById(R.id.fy);
         sy = (Button)findViewById(R.id.sy);
         ty = (Button)findViewById(R.id.ty);
+        fy_pracs = (LinearLayout)findViewById(R.id.fy_pracs);
+        b1 = (Button)findViewById(R.id.fy_b1);
+        b2 = (Button)findViewById(R.id.fy_b2);
+        fy_pracs.setVisibility(View.GONE);
+        fy.setText("FY IT");
 
         fy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog dialog = new AlertDialog.Builder(bscit.this)
+                final AlertDialog dialog = new AlertDialog.Builder(bscit.this)
                         .setTitle("FY BSCIT SELECTED ")
                         .setMessage("SELECT ATTENDANCE TYPE: ")
                         .setPositiveButton("THEORY",null)
@@ -51,21 +60,40 @@ public class bscit extends AppCompatActivity {
                negativeButton.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View v) {
-//                       Intent intent11 = new Intent(bscit.this,fybscit_practical.class);
-//                       intent11.putExtra("action","FY");
-//                       intent11.putExtra("Div","PRACTICAL");
-//                       startActivity(intent11);
-//                       finish();
-                       Toast.makeText(bscit.this, "Practical Schedule Not Updated\n Kindly Contact HOD", Toast.LENGTH_SHORT).show();
+                       fy_pracs.setVisibility(View.VISIBLE);
+                       fy.setText("FY PRACS");
+                       dialog.dismiss();
+
                    }
                });
 
 
             }
         });
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ib1 = new Intent(bscit.this,fybscit_practical.class);
+                ib1.putExtra("Batch","B1");
+                startActivity(ib1);
+                finish();
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ib2 = new Intent(bscit.this,fybscit_practical.class);
+                ib2.putExtra("Batch","B2");
+                startActivity(ib2);
+                finish();
+            }
+        });
+
         sy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fy_pracs.setVisibility(View.GONE);
+                fy.setText("FY IT");
                 AlertDialog dialog = new AlertDialog.Builder(bscit.this)
                         .setTitle("SY BSCIT SELECTED ")
                         .setMessage("SELECT ATTENDANCE TYPE: ")
@@ -105,6 +133,8 @@ public class bscit extends AppCompatActivity {
         ty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fy_pracs.setVisibility(View.GONE);
+                fy.setText("FY IT");
                 AlertDialog dialog = new AlertDialog.Builder(bscit.this)
                         .setTitle("TY BSCIT SELECTED ")
                         .setMessage("SELECT ATTENDANCE TYPE: ")

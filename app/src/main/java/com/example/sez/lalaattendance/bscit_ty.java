@@ -1,5 +1,6 @@
 package com.example.sez.lalaattendance;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -78,7 +79,7 @@ public class bscit_ty extends AppCompatActivity {
 //            Intent i = new Intent(Intent.ACTION_VIEW);
 //            i.setData(Uri.parse(url));
 //            startActivity(i);
-            AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+            AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this,R.style.FullScreen);
             LayoutInflater inflater = this.getLayoutInflater();
             View view = inflater.inflate(R.layout.sheet,null);
             WebView wv = (WebView) view.findViewById(R.id.view);
@@ -115,6 +116,11 @@ public class bscit_ty extends AppCompatActivity {
     }
 
     private void getURLs() {
+        final AlertDialog builder1=new AlertDialog.Builder(bscit_ty.this)
+        .setTitle("TY BSCIT")
+        .setMessage("Loading URL`s")
+        .show();
+
         Log.d("URL","ENTERED getURLs METHOD");
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
@@ -134,13 +140,22 @@ public class bscit_ty extends AppCompatActivity {
 
                                     google_form = object.getString("google_form");
                                     google_sheet = object.getString("google_sheet");
-                                    if(google_form !=" " && google_sheet != "")
+                                    displayWebView(R.id.present);
+
+                                    if(google_form.equalsIgnoreCase("NULL") && google_sheet.equalsIgnoreCase("NULL") )
                                     {
-                                        Toast.makeText(bscit_ty.this, "URL`s Loaded Successfully", Toast.LENGTH_SHORT).show();
+                                        builder1.dismiss();
+                                        //Toast.makeText(bscit_fy.this, "URL`s Loaded Successfully", Toast.LENGTH_SHORT).show();
+                                        //showMessage("Success","URL`s Loaded Successfully");
+                                        showMessage("Alert","Failed to load URL`s \nKindly go back and try again");
+
                                     }
-                                    else if(google_form == " " && google_sheet == "")
+                                    else
                                     {
-                                        Toast.makeText(bscit_ty.this, "Failed to Load URL`s \nKindly Refresh", Toast.LENGTH_SHORT).show();
+                                        builder1.dismiss();
+                                        //Toast.makeText(bscit_fy.this, "Failed to Load URL`s \nKindly Refresh", Toast.LENGTH_SHORT).show();
+                                        // showMessage("Alert","Failed to load URL`s \nKindly go back and try again");
+                                        showMessage("Success","URL`s Loaded Successfully");
                                     }
 
                                 }
@@ -173,6 +188,7 @@ public class bscit_ty extends AppCompatActivity {
                 Map<String,String> params = new HashMap<>();
                 params.put("year","TY");
                 params.put("stream","BSCIT");
+                params.put("s_type","THEORY");
                 return params;
             }
         } ;
@@ -181,6 +197,42 @@ public class bscit_ty extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+    public void showMessage(String title,String message)
+    {
+        if(title.equals("Success"))
+        {
+            AlertDialog.Builder builder=new AlertDialog.Builder(bscit_ty.this);
+            builder.setCancelable(true);
+            builder.setTitle(title);
+            builder.setMessage(message);
+            builder.show();
+        }
+        if(title.equals("Alert"))
+        {
+            AlertDialog.Builder builder=new AlertDialog.Builder(bscit_ty.this);
+            builder.setCancelable(true);
+            builder.setTitle(title);
+            builder.setMessage(message);
+            builder.setPositiveButton("Refresh", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Log.d("Refresh","URL REFRESH");
+                    getURLs();
+                }
+            });
+            builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Intent in = new Intent(bscit_ty.this,bscit.class);
+                    startActivity(in);
+                    finish();
+                }
+            });
+            builder.show();
+        }
+
+    }
+
 
     public void onBackPressed() {
 

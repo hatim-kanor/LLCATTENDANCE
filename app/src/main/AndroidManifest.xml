@@ -39,7 +39,7 @@
         <activity
             android:name=".bscit_ty"
             android:label="TY BSCIT"
-            android:screenOrientation="portrait" />
+            />
         <activity
             android:name=".bmm"
             android:label="BMM"
