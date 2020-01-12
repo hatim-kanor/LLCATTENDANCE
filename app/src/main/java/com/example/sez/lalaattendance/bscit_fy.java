@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -133,6 +134,14 @@ public class bscit_fy extends AppCompatActivity {
                                     google_sheet = object.getString("google_sheet");
                                     displayWebView(R.id.present);
                                     if(google_form.equalsIgnoreCase("NULL") && google_sheet.equalsIgnoreCase("NULL") )
+                                    {
+                                        dialog.dismiss();
+                                        //Toast.makeText(bscit_fy.this, "URL`s Loaded Successfully", Toast.LENGTH_SHORT).show();
+                                        //showMessage("Success","URL`s Loaded Successfully");
+                                        showMessage("Alert","Failed to load URL`s \nKindly go back and try again");
+
+                                    }
+                                    else if(TextUtils.isEmpty(google_form) && TextUtils.isEmpty(google_sheet) )
                                     {
                                         dialog.dismiss();
                                         //Toast.makeText(bscit_fy.this, "URL`s Loaded Successfully", Toast.LENGTH_SHORT).show();

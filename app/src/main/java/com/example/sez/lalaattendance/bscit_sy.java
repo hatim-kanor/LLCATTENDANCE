@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -155,6 +156,14 @@ public class bscit_sy extends AppCompatActivity {
                                     google_sheet = object.getString("google_sheet");
                                     displayWebView(R.id.present);
                                     if(google_form.equalsIgnoreCase("NULL") && google_sheet.equalsIgnoreCase("NULL") )
+                                    {
+                                        dialog.dismiss();
+                                        //Toast.makeText(bscit_fy.this, "URL`s Loaded Successfully", Toast.LENGTH_SHORT).show();
+                                        //showMessage("Success","URL`s Loaded Successfully");
+                                        showMessage("Alert","Failed to load URL`s \nKindly go back and try again");
+
+                                    }
+                                    else if(TextUtils.isEmpty(google_form) && TextUtils.isEmpty(google_sheet) )
                                     {
                                         dialog.dismiss();
                                         //Toast.makeText(bscit_fy.this, "URL`s Loaded Successfully", Toast.LENGTH_SHORT).show();
