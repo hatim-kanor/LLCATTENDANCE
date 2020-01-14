@@ -25,6 +25,7 @@ public class BFM extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BFM.this,bfm_fy.class);
+                intent.putExtra("div","FY");
                 startActivity(intent);
                 finish();
             }
@@ -32,7 +33,8 @@ public class BFM extends AppCompatActivity {
         sy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BFM.this,bfm_sy.class);
+                Intent intent = new Intent(BFM.this,bfm_fy.class);
+                intent.putExtra("div","SY");
                 startActivity(intent);
                 finish();
             }
@@ -40,7 +42,8 @@ public class BFM extends AppCompatActivity {
         ty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BFM.this,bfm_ty.class);
+                Intent intent = new Intent(BFM.this,bfm_fy.class);
+                intent.putExtra("div","TY");
                 startActivity(intent);
                 finish();
 

@@ -12,7 +12,6 @@
         android:text="X   "
         android:layout_alignParentRight="true"
         android:textSize="20dp"
-        android:layout_marginRight="10px"
         android:textStyle="bold"
         android:textColor="@android:color/white"
         android:background="@android:color/holo_blue_light"

@@ -28,10 +28,11 @@ public class tybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(tybms.this,tybms_a.class);
+                Intent intent = new Intent(tybms.this,bms_activity.class);
+                intent.putExtra("div","A");
+                intent.putExtra("year","TY");
                 startActivity(intent);
                 finish();
-
 
             }
         });
@@ -39,10 +40,11 @@ public class tybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(tybms.this,tybms_b.class);
+                Intent intent = new Intent(tybms.this,bms_activity.class);
+                intent.putExtra("div","B");
+                intent.putExtra("year","TY");
                 startActivity(intent);
                 finish();
-
 
             }
         });
@@ -50,10 +52,11 @@ public class tybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(tybms.this,tybms_c.class);
+                Intent intent = new Intent(tybms.this,bms_activity.class);
+                intent.putExtra("div","C");
+                intent.putExtra("year","TY");
                 startActivity(intent);
                 finish();
-
 
             }
         });
@@ -61,10 +64,11 @@ public class tybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(tybms.this,tybms_d.class);
+                Intent intent = new Intent(tybms.this,bms_activity.class);
+                intent.putExtra("div","D");
+                intent.putExtra("year","TY");
                 startActivity(intent);
                 finish();
-
 
             }
         });
@@ -72,10 +76,11 @@ public class tybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(tybms.this,tybms_m.class);
+                Intent intent = new Intent(tybms.this,bms_activity.class);
+                intent.putExtra("div","MRKT");
+                intent.putExtra("year","TY");
                 startActivity(intent);
                 finish();
-
 
             }
         });
@@ -83,13 +88,16 @@ public class tybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(tybms.this,tybms_f.class);
+                Intent intent = new Intent(tybms.this,bms_activity.class);
+                intent.putExtra("div","FINA");
+                intent.putExtra("year","TY");
                 startActivity(intent);
                 finish();
 
-
             }
         });
+
+
 
 
     }

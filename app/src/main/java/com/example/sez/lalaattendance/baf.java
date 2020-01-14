@@ -38,6 +38,7 @@ public class baf extends AppCompatActivity {
                    @Override
                    public void onClick(View v) {
                        Intent intent = new Intent(baf.this,baf_fyA.class);
+                       intent.putExtra("div","A");
                        startActivity(intent);
                        finish();
 
@@ -50,7 +51,8 @@ public class baf extends AppCompatActivity {
                negativeButton.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View v) {
-                       Intent intent11 = new Intent(baf.this,baf_fyB.class);
+                       Intent intent11 = new Intent(baf.this,baf_fyA.class);
+                       intent11.putExtra("div","B");
                        startActivity(intent11);
                        finish();
                    }
@@ -61,6 +63,7 @@ public class baf extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(baf.this,baf_sy.class);
+                intent.putExtra("year","SY");
                 startActivity(intent);
                 finish();
             }
@@ -68,7 +71,8 @@ public class baf extends AppCompatActivity {
         ty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(baf.this,baf_ty.class);
+                Intent intent = new Intent(baf.this,baf_sy.class);
+                intent.putExtra("year","TY");
                 startActivity(intent);
                 finish();
 

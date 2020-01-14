@@ -24,6 +24,7 @@ public class BBI extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BBI.this,bbi_fy.class);
+                intent.putExtra("div","FY");
                 startActivity(intent);
                 finish();
             }
@@ -31,7 +32,8 @@ public class BBI extends AppCompatActivity {
         sy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BBI.this,bbi_sy.class);
+                Intent intent = new Intent(BBI.this,bbi_fy.class);
+                intent.putExtra("div","SY");
                 startActivity(intent);
                 finish();
             }
@@ -39,7 +41,8 @@ public class BBI extends AppCompatActivity {
         ty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BBI.this,bbi_ty.class);
+                Intent intent = new Intent(BBI.this,bbi_fy.class);
+                intent.putExtra("div","TY");
                 startActivity(intent);
                 finish();
 

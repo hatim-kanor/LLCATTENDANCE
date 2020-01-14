@@ -46,8 +46,8 @@ public class bscit extends AppCompatActivity {
                    @Override
                    public void onClick(View v) {
                        Intent intent = new Intent(bscit.this,bscit_fy.class);
-                       intent.putExtra("action","FY");
-                       intent.putExtra("Div","THEORY");
+                       intent.putExtra("year","FY");
+                       intent.putExtra("s_type","THEORY");
                        startActivity(intent);
                        finish();
 
@@ -105,9 +105,9 @@ public class bscit extends AppCompatActivity {
                 positiveButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(bscit.this,bscit_sy.class);
-                        intent.putExtra("action","SY");
-                        intent.putExtra("Div","THEORY");
+                        Intent intent = new Intent(bscit.this,bscit_fy.class);
+                        intent.putExtra("year","SY");
+                        intent.putExtra("s_type","THEORY");
                         startActivity(intent);
                         finish();
 
@@ -146,9 +146,9 @@ public class bscit extends AppCompatActivity {
                 positiveButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(bscit.this,bscit_ty.class);
-                        intent.putExtra("action","TY");
-                        intent.putExtra("Div","THEORY");
+                        Intent intent = new Intent(bscit.this,bscit_fy.class);
+                        intent.putExtra("year","TY");
+                        intent.putExtra("s_type","THEORY");
                         startActivity(intent);
                         finish();
 

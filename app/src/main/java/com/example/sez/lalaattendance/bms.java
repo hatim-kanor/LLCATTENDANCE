@@ -28,7 +28,9 @@ public class bms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(bms.this,FyBms_a.class);
+                Intent intent = new Intent(bms.this,bms_activity.class);
+                intent.putExtra("div","A");
+                intent.putExtra("year","FY");
                 startActivity(intent);
                 finish();
 
@@ -40,7 +42,9 @@ public class bms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(bms.this,fybms_b.class);
+                Intent intent = new Intent(bms.this,bms_activity.class);
+                intent.putExtra("div","B");
+                intent.putExtra("year","FY");
                 startActivity(intent);
                 finish();
 
@@ -50,7 +54,9 @@ public class bms extends AppCompatActivity {
         divC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(bms.this,fybms_c.class);
+                Intent intent = new Intent(bms.this,bms_activity.class);
+                intent.putExtra("div","C");
+                intent.putExtra("year","FY");
                 startActivity(intent);
                 finish();
 
@@ -60,7 +66,9 @@ public class bms extends AppCompatActivity {
         divD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(bms.this,fybms_d.class);
+                Intent intent = new Intent(bms.this,bms_activity.class);
+                intent.putExtra("div","D");
+                intent.putExtra("year","FY");
                 startActivity(intent);
                 finish();
 

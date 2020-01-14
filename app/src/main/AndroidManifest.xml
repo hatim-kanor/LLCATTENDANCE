@@ -11,7 +11,11 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity" android:theme="@style/Theme.Design.NoActionBar" android:screenOrientation="portrait">
+        <activity android:name=".bms_activity"></activity>
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +26,7 @@
             android:name=".MainActivity"
             android:icon="@drawable/logo"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Design.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.Design.NoActionBar"></activity>
         <activity
             android:name=".bscit_fy"
             android:label="FY - BSCIT "
@@ -32,14 +35,6 @@
             android:name=".bscit"
             android:label="BSCIT"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".bscit_sy"
-            android:label="SY BSCIT"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".bscit_ty"
-            android:label="TY BSCIT"
-            />
         <activity
             android:name=".bmm"
             android:label="BMM"
@@ -69,16 +64,8 @@
             android:label="BAF"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".baf_fy"
-            android:label="FY BAF"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".baf_sy"
             android:label="SY BAF"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".baf_ty"
-            android:label="TY BAF"
             android:screenOrientation="portrait" />
         <activity
             android:name=".BFM"
@@ -89,122 +76,38 @@
             android:label="FY BFM"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".bfm_sy"
-            android:label="SY BFM"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".bfm_ty"
-            android:label="TY BFM"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".BBI"
             android:label="BBI"
             android:screenOrientation="portrait" />
         <activity
             android:name=".bbi_fy"
             android:label="FY BBI"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".bbi_sy"
-            android:label="SY BBI"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".bbi_ty"
-            android:label="TY BBI"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".bms"
             android:label="FY BMS"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".FyBms_a"
-            android:label="FY BMS A"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".fybms_b"
-            android:label="FY BMS B"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".fybms_c"
-            android:label="FY BMS C"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".fybms_d"
-            android:label="FY BMS D"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".sybms"
-            android:label="SYBMS"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".sybms_a"
-            android:label="SY BMS A"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".sybms_b"
-            android:label="SY BMS B"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".sybms_c"
-            android:label="SY BMS C"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".sybms_d"
-            android:label="SY BMS D"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".sybms_marketing"
-            android:label="SY BMS MARK"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".sybms_finance"
-            android:label="SY BMS FINAN"
             android:screenOrientation="portrait" />
         <activity
             android:name=".tybms"
             android:label="TYBMS"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".tybms_a"
-            android:label="TY BMS A"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tybms_b"
-            android:label="TY BMS B"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tybms_c"
-            android:label="TY BMS C"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tybms_d"
-            android:label="TY BMS D"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tybms_m"
-            android:label="TY BMS MARK"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tybms_f"
-            android:label="TY BMS FINAN"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".fybscit_practical"
             android:label="FY IT PRAC"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".sybscit_practical"
-            android:label="FY IT PRAC"
+            android:name=".baf_fyA"
+            android:label="BAF A"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".tybscit_practical"
-            android:label="TY IT PRAC"
+            android:name=".fybmm_A"
+            android:label="BMM A"
             android:screenOrientation="portrait" />
-       <activity android:name=".baf_fyA" android:label="BAF A" android:screenOrientation="portrait" />
-        <activity android:name=".baf_fyB" android:label="BAF B" android:screenOrientation="portrait" />
-        <activity android:name=".fybmm_A" android:label="BMM A" android:screenOrientation="portrait" />
-        <activity android:name=".fybmm_B" android:label="BMM B" android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".fybmm_B"
+            android:label="BMM B"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

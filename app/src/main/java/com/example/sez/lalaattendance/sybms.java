@@ -29,7 +29,9 @@ public class sybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(sybms.this,sybms_a.class);
+                Intent intent = new Intent(sybms.this,bms_activity.class);
+                intent.putExtra("div","A");
+                intent.putExtra("year","SY");
                 startActivity(intent);
                 finish();
 
@@ -39,7 +41,9 @@ public class sybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(sybms.this,sybms_b.class);
+                Intent intent = new Intent(sybms.this,bms_activity.class);
+                intent.putExtra("div","B");
+                intent.putExtra("year","SY");
                 startActivity(intent);
                 finish();
 
@@ -49,7 +53,9 @@ public class sybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(sybms.this,sybms_c.class);
+                Intent intent = new Intent(sybms.this,bms_activity.class);
+                intent.putExtra("div","C");
+                intent.putExtra("year","SY");
                 startActivity(intent);
                 finish();
 
@@ -59,7 +65,9 @@ public class sybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(sybms.this,sybms_d.class);
+                Intent intent = new Intent(sybms.this,bms_activity.class);
+                intent.putExtra("div","D");
+                intent.putExtra("year","SY");
                 startActivity(intent);
                 finish();
 
@@ -69,7 +77,9 @@ public class sybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(sybms.this,sybms_marketing.class);
+                Intent intent = new Intent(sybms.this,bms_activity.class);
+                intent.putExtra("div","MRKT");
+                intent.putExtra("year","SY");
                 startActivity(intent);
                 finish();
 
@@ -79,7 +89,9 @@ public class sybms extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(sybms.this,sybms_finance.class);
+                Intent intent = new Intent(sybms.this,bms_activity.class);
+                intent.putExtra("div","FINA");
+                intent.putExtra("year","SY");
                 startActivity(intent);
                 finish();
 

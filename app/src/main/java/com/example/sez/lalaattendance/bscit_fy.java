@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -42,12 +43,24 @@ public class bscit_fy extends AppCompatActivity {
     private static String URL = "http://llc-attendance.000webhostapp.com/Attendance_Data/getSubject.php";
     private static String google_form = "";
     private static String google_sheet = "";
+    String year;
+    Intent intent;
+    Bundle b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bscit_fy);
-        getURLs();
+        intent = getIntent();
+        b = intent.getExtras();
+
+        year = b.getString("year");
+
+        ActionBar actionBar = getSupportActionBar();
+
+        actionBar.setTitle(year + " BSCIT");
+
+        getURLs(year);
         displayWebView(R.id.present);
     }
     public void displayWebView(int itemID)
@@ -67,7 +80,7 @@ public class bscit_fy extends AppCompatActivity {
             webView.setWebViewClient(new WebViewClient());
 
             webView.loadUrl(google_form);
-            Toast.makeText(bscit_fy.this, "FYBSCIT PRESENT SELECTED", Toast.LENGTH_SHORT).show();
+            Toast.makeText(bscit_fy.this, year+"BSCIT PRESENT SELECTED", Toast.LENGTH_SHORT).show();
 
         }
         if(itemID == R.id.sheet)
@@ -99,7 +112,7 @@ public class bscit_fy extends AppCompatActivity {
                 }
             });
 
-            Toast.makeText(bscit_fy.this, "FYBSCIT ONLINE SHEET SELECTED", Toast.LENGTH_SHORT).show();
+            Toast.makeText(bscit_fy.this, year+"BSCIT ONLINE SHEET SELECTED", Toast.LENGTH_SHORT).show();
         }
         if(itemID == R.id.navigation_home)
         {
@@ -108,9 +121,9 @@ public class bscit_fy extends AppCompatActivity {
         }
     }
 
-    private void getURLs() {
+    private void getURLs(final String year) {
         final AlertDialog dialog = new AlertDialog.Builder(bscit_fy.this)
-                .setTitle("FY IT")
+                .setTitle(year + "BSCIT")
                 .setMessage("Loading URL`s ...")
                 .show();
         Log.d("URL","ENTERED getURLs METHOD");
@@ -185,7 +198,7 @@ public class bscit_fy extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params = new HashMap<>();
-                params.put("year","FY");
+                params.put("year",year);
                 params.put("stream","BSCIT");
                 params.put("s_type","THEORY");
                 return params;
@@ -234,7 +247,7 @@ public class bscit_fy extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     Log.d("Refresh","URL REFRESH");
-                    getURLs();
+                    getURLs(year);
                 }
             });
             builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {

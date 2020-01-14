@@ -42,6 +42,8 @@ public class bmm extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(bmm.this,fybmm_A.class);
+                        intent.putExtra("year","FY");
+                        intent.putExtra("div","A");
                         startActivity(intent);
                         finish();
 
@@ -54,7 +56,9 @@ public class bmm extends AppCompatActivity {
                 negativeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent11 = new Intent(bmm.this,fybmm_B.class);
+                        Intent intent11 = new Intent(bmm.this,fybmm_A.class);
+                        intent11.putExtra("year","FY");
+                        intent11.putExtra("div","B");
                         startActivity(intent11);
                         finish();
                     }
@@ -65,7 +69,8 @@ public class bmm extends AppCompatActivity {
         sy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(bmm.this,sybmm.class);
+                Intent intent1 = new Intent(bmm.this,tybmm.class);
+                intent1.putExtra("year","SY");
                 startActivity(intent1);
                 finish();
             }
@@ -87,6 +92,7 @@ public class bmm extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(bmm.this,tybmm.class);
+                        intent.putExtra("year","TY");
                         startActivity(intent);
                         finish();
 
@@ -99,7 +105,9 @@ public class bmm extends AppCompatActivity {
                 negativeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent11 = new Intent(bmm.this,tybmm_advt.class);
+                        Intent intent11 = new Intent(bmm.this,fybmm_A.class);
+                        intent11.putExtra("year","TY");
+                        intent11.putExtra("div","ADVT");
                         startActivity(intent11);
                         finish();
                     }
@@ -108,7 +116,9 @@ public class bmm extends AppCompatActivity {
                 neutralButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent11 = new Intent(bmm.this,tybmm_journalism.class);
+                        Intent intent11 = new Intent(bmm.this,fybmm_A.class);
+                        intent11.putExtra("year","TY");
+                        intent11.putExtra("div","JOURNO");
                         startActivity(intent11);
                         finish();
                     }
